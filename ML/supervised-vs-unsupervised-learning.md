@@ -21,6 +21,9 @@ Two fundamental approaches are **Supervised Learning** and **Unsupervised Learni
 - Decision Trees
 - Support Vector Machines
 
+<img width="632" height="302" alt="image" src="https://github.com/user-attachments/assets/55629cce-4aed-4fbd-832d-1ab1480bc13c" />
+
+
 ---
 
 ## 2. Unsupervised Learning

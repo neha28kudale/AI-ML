@@ -1,0 +1,48 @@
+# The NLP Preprocessing Pipeline
+
+Once we understand what NLP is, the next step is learning how to prepare human language for a machine. This phase is called **Preprocessing**. It is the most critical step because "garbage in" equals "garbage out" in Machine Learning.
+
+## 1. Tokenization: Breaking it Down
+Tokenization is the process of splitting a continuous stream of text into smaller units called **Tokens**. 
+
+* **Word Tokenization:** The most common form, where sentences are split into individual words.
+* **Sentence Tokenization:** Splitting a paragraph into its constituent sentences.
+* **The Goal:** To turn unstructured text into a discrete list of elements that an algorithm can eventually count or vectorize.
+
+> **Example:** > *Original:* "NLP is amazing, isn't it?"
+> *Tokens:* `["NLP", "is", "amazing", ",", "isn't", "it", "?"]`
+
+---
+
+## 2. Text Normalization: Finding the Root
+In any language, words have different grammatical forms (e.g., *play*, *playing*, *played*). To a computer, these are three unique strings. **Normalization** simplifies these variations into a single "root" form so the model understands they represent the same concept.
+
+There are two primary ways to do this:
+
+### **Stemming**
+Stemming is a rule-based process that "chops off" the ends of words. It is fast and efficient but can be "crude" because it doesn't understand language rules—it just follows algorithms (like the Porter Stemmer).
+* **Result:** Often results in "stems" that are not real dictionary words.
+* **Example:** `"Studies"` $\rightarrow$ `"Studi"`
+
+### **Lemmatization**
+Lemmatization is a more sophisticated, "linguistically smart" approach. It uses a dictionary (lexicon) and considers the context (Part of Speech) to return the actual base form of the word, known as a **Lemma**.
+* **Result:** Always results in a valid, real-world word.
+* **Example:** `"Studies"` $\rightarrow$ `"Study"`
+
+---
+
+## 3. Comparison: Stemming vs. Lemmatization
+
+| Feature | Stemming | Lemmatization |
+| :--- | :--- | :--- |
+| **Method** | Heuristic/Rule-based (chopping) | Morphological analysis (dictionary) |
+| **Speed** | Very Fast | Slower (requires look-ups) |
+| **Accuracy** | Lower (can create non-words) | High (returns valid words) |
+| **Best For** | Large datasets, basic search engines | Chatbots, Sentiment Analysis, Q&A |
+
+---
+
+## 4. Why is this necessary?
+After we have **Tokenized** the text and **Normalized** it (using either Stemming or Lemmatization), the data is finally clean enough for **Feature Extraction**. 
+
+This is where the concepts of **Bag of Words (BoW)** and **TF-IDF** come in. These techniques take our cleaned tokens and turn them into numerical vectors. Without the preprocessing steps above, our vectors would be massive, messy, and far less accurate.
