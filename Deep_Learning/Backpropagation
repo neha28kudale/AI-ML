@@ -58,8 +58,44 @@ Weights are updated using an optimizer (e.g., Gradient Descent):
 ---
 
 ##Backpropagation Flow Diagram
+                ┌───────────────┐
+                │   Input Layer │
+                │   (x1, x2..)  │
+                └──────┬────────┘
+                       │
+                       ▼
+                ┌───────────────┐
+                │ Hidden Layer  │
+                │   (h1, h2..)  │
+                └──────┬────────┘
+                       │
+                       ▼
+                ┌───────────────┐
+                │ Output Layer  │
+                │    (ŷ)        │
+                └──────┬────────┘
+                       │
+                       ▼
+                ┌───────────────┐
+                │   Loss (Error)│
+                │   L(ŷ, y)     │
+                └──────┬────────┘
+                       │
+        ───────────────┼───────────────
+        ← ← ← ← BACKPROPAGATION ← ← ← ←
+                       │
+                       ▼
+                ┌───────────────┐
+                │ Gradients     │
+                │ ∂L/∂weights   │
+                └──────┬────────┘
+                       │
+                       ▼
+                ┌───────────────┐
+                │ Weight Update │
+                │ w = w - η∇L   │
+                └───────────────┘
 
-![Backpropagation Diagram](https://upload.wikimedia.org/wikipedia/commons/6/60/Backpropagation.png)
 
 *This diagram shows how data flows forward through the network and how error is propagated backward to update weights.*
 
